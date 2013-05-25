@@ -15,5 +15,5 @@ in a sequence of operations.
     * O(1) Append
     * O(1) Concat (in place, obviously)
     * O(m+n) CopyConcat
-    * O(lg n) Search (binary underneath)
+    * O(n) Search
     * O(n) Remove (nil if failed)
