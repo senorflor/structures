@@ -151,8 +151,6 @@ func (d *Deque) Shuffle() *Deque {
 	}
 	
 	// Shuffle the slice
-	// TODO: learn about randoms and seeds in Go; the test
-	// currently generates the same data each run.
 	for i := range values {
 		j := rand.Intn(i+1)
 		values[i], values[j] = values[j], values[i]
