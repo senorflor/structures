@@ -28,12 +28,6 @@ func New() *Deque {
 	return new(Deque).Init()
 }
 
-func (d *Deque) lazyInit() {
-	if d.l == nil {
-		d.Init()
-	}
-}
-
 func (d *Deque) Size() int {
 	return d.l.Len()
 }
@@ -62,6 +56,20 @@ func (d *Deque) PushTop(v interface {}) *Deque {
 func (d *Deque) PushBottom(v interface {}) *Deque {
 	d.last = d.l.PushBack(v)
 	return d 
+}
+
+func (d *Deque) PopTop() interface{} {
+	if d.Size() < 1 {
+		return nil
+	}
+	return d.l.Remove(d.l.Front())
+}
+
+func (d *Deque) PopBottom() interface{} { // he he
+	if d.Size() < 1 {
+		return nil
+	}
+	return d.l.Remove(d.l.Back())
 }
 
 func (d *Deque) Shuffle() *Deque {

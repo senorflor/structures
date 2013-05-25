@@ -29,6 +29,19 @@ func TestPush(t *testing.T) {
 	}
 }
 
+func TestPop(t *testing.T) {
+	d := New().PushTop(2).PushBottom(3).PushTop(1) // 1 2 3
+	if v := d.PopBottom(); v != 3 {
+		t.Errorf("PopBottom returned %d, not 3", v)
+	}
+	if v := d.PopTop(); v != 1 {
+		t.Errorf("PopTop returned %d, not 1", v)
+	}
+	if s := d.Size(); s != 1 {
+		t.Errorf("After pops, deque should have size 1, not %d", s)
+	}
+}
+
 func TestShuffleTinyDeques(t *testing.T) {
 	d1, d2 := New(), New()
 	if ! reflect.DeepEqual(d1, d2.Shuffle())  {
