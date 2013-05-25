@@ -10,16 +10,11 @@ import (
 )
 
 type Deque struct {
-	// Nice side effect of the sentinel as a member not a pointer
-	// to one: the access syntax/semantics differ enough to remind
-	// us of the fact.
 	l *list.List
-	last *list.Element
+	last *list.Element // future access caching hook
 }
 
 func (d *Deque) Init() *Deque {
-	// Nice that member/deref chaining doesn't look like ascii art
-	// like in C/C++.
 	d.l = list.New()
 	return d
 }
