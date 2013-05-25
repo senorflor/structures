@@ -18,13 +18,13 @@ func TestDequeCreation(t *testing.T) {
 }
 
 func TestPush(t *testing.T) {
-	d := New()
-	top := d.PushTop(42)
-	bottom := d.PushBottom(1337)
-	if n := d.Top(); n.Val != 42 || top != n {
+	d := New().PushTop(42).PushBottom(1337)
+
+	if v := d.Top(); v != 42 {
 		t.Errorf("Top was not correct after PushTop, PushBottom")
 	}
-	if n := d.Bottom(); n.Val != 1337 || bottom != n {
+	
+	if v := d.Bottom(); v != 1337 {
 		t.Errorf("Bottom was not correct after PushTop, PushBottom")
 	}
 }
