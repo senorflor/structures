@@ -1,5 +1,4 @@
-// Encapsulated Deque, based on container/list
-
+// Package deque: An encapsulated deque, based on container/list
 package deque
 
 import (
@@ -14,13 +13,13 @@ type Deque struct {
 	last *list.Element // future access caching hook
 }
 
+func New() *Deque {
+	return new(Deque).Init()
+}
+
 func (d *Deque) Init() *Deque {
 	d.l = list.New()
 	return d
-}
-
-func New() *Deque {
-	return new(Deque).Init()
 }
 
 func (d *Deque) Size() int {
